@@ -8,3 +8,17 @@ useUnifiedTopology:true
 })
 
 const db=mongoose.connection;
+
+db.on("coonected",()=>{
+    console.log("coonected to mongodb");
+})
+
+db.on("error",(err)=>{
+    console.log("error in connecting to mongodb",err);
+})
+
+db.on("disconnected",()=>{
+    console.log("disconnected from mongodb");
+})
+
+module.exports=db;
